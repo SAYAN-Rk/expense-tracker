@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="balance">
+            <h2>Current Balance: $<span id="balance">0.00</span></h2>
+        </div>
+
+        <div class="transaction-form">
+            <h3>Add New Transaction</h3>
+            <form id="transactionForm">
+                <input type="text" id="transactionName" placeholder="Transaction Name" required>
+                <input type="number" id="transactionAmount" placeholder="Amount" required>
+                <label for="transactionDate">Date:</label>
+                <input type="date" id="transactionDate" title="Select transaction date" placeholder="YYYY-MM-DD" required>
+                <input type="text" id="transactionCategory" placeholder="Category (e.g., Groceries)" required>
+                <label for="transactionType">Type:</label>
+                <select id="transactionType" title="Select transaction type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </div>
+
+        <div class="filters">
+            <h3>Filters</h3>
+            <div class="filter-row">
+                <label>From: <input type="date" id="filterStart"></label>
+                <label>To: <input type="date" id="filterEnd"></label>
+            </div>
+            <div class="filter-row">
+                <label>Category:
+                    <select id="filterCategory">
+                        <option value="all">All</option>
+                    </select>
+                </label>
+                <button id="applyFilters">Apply</button>
+                <button id="clearFilters">Clear</button>
+            </div>
+        </div>
+
+        <div class="transaction-history">
+            <h3>Transaction History</h3>
+            <ul id="transactionList"></ul>
+        </div>
+
+        <div class="summary-and-export">
+            <h3>Monthly Summary</h3>
+            <div id="monthlySummary"></div>
+
+            <div class="export-csv-container">
+                <button id="exportCsv">Export CSV</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
